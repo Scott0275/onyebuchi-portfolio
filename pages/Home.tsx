@@ -1,0 +1,90 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { User, Briefcase, PlayCircle, Database, Cloud } from 'lucide-react';
+import PageTransition from '../components/PageTransition';
+
+const Home: React.FC = () => {
+  return (
+    <PageTransition className="flex flex-col justify-center min-h-[calc(100vh-4rem)] px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
+        
+        {/* Left Column: Text Content */}
+        <div className="space-y-8 text-center md:text-left order-2 md:order-1">
+          <div className="space-y-4">
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-teal-50 border border-teal-100 text-teal-700 text-xs font-bold tracking-wide uppercase">
+              <Cloud size={14} className="mr-2" />
+              TechWithBuchi
+            </div>
+            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 tracking-tight leading-tight">
+              Onokwuru Oscar <br className="hidden lg:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-blue-600">
+                Onyebuchi
+              </span>
+            </h1>
+            <p className="text-lg md:text-xl text-slate-600 font-medium max-w-lg mx-auto md:mx-0">
+              Cloud & Data Engineer • AWS Certified Solutions Architect • Problem-Solver & Smart-Care Innovator
+            </p>
+          </div>
+
+          <p className="text-slate-500 leading-relaxed max-w-md mx-auto md:mx-0">
+            I build cloud-native data solutions and practical systems that solve real-world problems across Africa.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-4">
+            <Link
+              to="/bio"
+              className="flex items-center justify-center px-8 py-3 w-full sm:w-auto text-base font-medium rounded-lg text-white bg-teal-600 hover:bg-teal-700 transition-all duration-200 shadow-lg shadow-teal-200 hover:shadow-teal-300 transform hover:-translate-y-0.5"
+            >
+              <User className="w-5 h-5 mr-2" />
+              View Bio
+            </Link>
+            <Link
+              to="/portfolio"
+              className="flex items-center justify-center px-8 py-3 w-full sm:w-auto text-base font-medium rounded-lg text-slate-700 bg-white border border-slate-200 hover:border-teal-500 hover:text-teal-600 transition-all duration-200"
+            >
+              <Briefcase className="w-5 h-5 mr-2" />
+              Portfolio
+            </Link>
+          </div>
+        </div>
+
+        {/* Right Column: Image with Cloud/Tech styling */}
+        <div className="relative order-1 md:order-2 flex justify-center">
+          {/* Decorative Background Glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-teal-200/40 via-blue-200/30 to-transparent blur-3xl rounded-full opacity-70"></div>
+          
+          <div className="relative z-10 w-72 h-72 md:w-96 md:h-96">
+            {/* Tech Ring Decoration */}
+            <div className="absolute inset-0 border-2 border-dashed border-teal-200 rounded-full animate-[spin_20s_linear_infinite]"></div>
+            
+            {/* Main Image Container */}
+            <div className="absolute inset-4 rounded-full overflow-hidden border-4 border-white shadow-2xl shadow-teal-900/10">
+              <div className="absolute inset-0 bg-teal-900/10 mix-blend-overlay z-10"></div> {/* Subtle tint */}
+              <img 
+                src="/profile.jpg" 
+                alt="Onokwuru Oscar Onyebuchi" 
+                className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = 'https://lh3.googleusercontent.com/gg/AIJ2gl9PgFAs4BmTeelAZTg-OWqqOAS5efcWGlKvqX07VaDh6h46qBreoGVpLEiV32T4i2ODW0qVUAFl6g0b11LkHfKgV1iQuT8iO5BW8JDfbhyqtOfa3aQSlaWlBql2GlwanLu7g9ONyfMEYp4YSX9C7ZxML1ISTMmJUIDsrjXOYvNx6F8RAfQN=s1024-rj-mp2'; // Fallback
+                }}
+              />
+            </div>
+
+            {/* Floating Badges */}
+            <div className="absolute -bottom-2 -right-2 bg-white p-3 rounded-xl shadow-lg border border-slate-100 flex items-center gap-2 animate-bounce" style={{ animationDuration: '3s' }}>
+              <Database className="w-5 h-5 text-teal-600" />
+              <span className="text-xs font-bold text-slate-700">Data Engineer</span>
+            </div>
+             <div className="absolute top-10 -left-6 bg-white p-3 rounded-xl shadow-lg border border-slate-100 flex items-center gap-2" >
+              <Cloud className="w-5 h-5 text-blue-500" />
+              <span className="text-xs font-bold text-slate-700">AWS Certified</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </PageTransition>
+  );
+};
+
+export default Home;
