@@ -1,6 +1,6 @@
 import React from 'react';
-import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import { HashRouter, Routes, Route, useLocation } from './components/PageTransition';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Bio from './pages/Bio';

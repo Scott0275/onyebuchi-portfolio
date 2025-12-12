@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Github, Linkedin, Twitter } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link, useLocation } from './PageTransition';
 
 interface LayoutProps {
   children: React.ReactNode;
