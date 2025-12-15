@@ -82,34 +82,34 @@ const Contact: React.FC = () => {
         {/* Contact Info */}
         <div className="space-y-8">
           <div>
-            <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Let's Connect</h1>
-            <p className="text-slate-600 text-lg">
+            <h1 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4 transition-colors duration-300">Let's Connect</h1>
+            <p className="text-slate-600 dark:text-slate-400 text-lg transition-colors duration-300">
               Interested in collaboration, cloud architecture, or data engineering discussions? I'm always open to meaningful conversations.
             </p>
           </div>
 
           <div className="space-y-4">
-            <div className="flex items-center space-x-4 p-4 bg-white rounded-lg border border-slate-100 shadow-sm">
-              <div className="bg-teal-50 p-3 rounded-full text-teal-600">
+            <div className="flex items-center space-x-4 p-4 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 shadow-sm transition-all duration-300">
+              <div className="bg-teal-100 dark:bg-teal-900/30 p-3 rounded-full text-teal-600 dark:text-teal-400">
                 <Mail size={24} />
               </div>
               <div>
-                <p className="text-sm text-slate-500 font-medium">Email</p>
-                <p className="text-slate-900 font-medium">techwithbuchi@gmail.com</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">Email</p>
+                <p className="text-slate-900 dark:text-white font-medium">techwithbuchi@gmail.com</p>
               </div>
             </div>
           </div>
 
           <div>
-            <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">Social Profiles</h3>
+            <h3 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-4">Social Profiles</h3>
             <div className="flex space-x-4">
-              <a href="https://github.com/scott0275" className="p-3 bg-slate-100 rounded-lg text-slate-600 hover:bg-slate-800 hover:text-white transition-all duration-300">
+              <a href="https://github.com/scott0275" className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-all duration-300">
                 <Github size={24} />
               </a>
-              <a href="https://www.linkedin.com/in/oscar-onokwuru" className="p-3 bg-slate-100 rounded-lg text-slate-600 hover:bg-blue-700 hover:text-white transition-all duration-300">
+              <a href="https://www.linkedin.com/in/oscar-onokwuru" className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-800 transition-all duration-300">
                 <Linkedin size={24} />
               </a>
-              <a href="https://twitter.com/OOnokwuru" className="p-3 bg-slate-100 rounded-lg text-slate-600 hover:bg-sky-500 hover:text-white transition-all duration-300">
+              <a href="https://twitter.com/OOnokwuru" className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-400 hover:bg-sky-50 dark:hover:bg-sky-900/30 hover:text-sky-600 dark:hover:text-sky-400 hover:border-sky-200 dark:hover:border-sky-800 transition-all duration-300">
                 <Twitter size={24} />
               </a>
             </div>
@@ -117,19 +117,19 @@ const Contact: React.FC = () => {
         </div>
 
         {/* Contact Form */}
-        <div className="bg-white rounded-2xl shadow-lg border border-slate-100 p-8">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-800 p-8 transition-all duration-300">
           {submitted ? (
             <div className="h-full flex flex-col items-center justify-center text-center space-y-4 py-12">
-              <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 bg-green-100 dark:bg-green-900/20 text-green-600 dark:text-green-400 rounded-full flex items-center justify-center border border-green-200 dark:border-green-900/50">
                 <Send size={32} />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900">Message Prepared!</h3>
-              <p className="text-slate-500 max-w-xs mx-auto">
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Message Prepared!</h3>
+              <p className="text-slate-600 dark:text-slate-400 max-w-xs mx-auto">
                 Your default email client should open shortly to send the message to <strong>techwithbuchi@gmail.com</strong>.
               </p>
               <button 
                 onClick={() => setSubmitted(false)}
-                className="mt-4 text-teal-600 font-medium hover:underline"
+                className="mt-4 text-teal-600 dark:text-teal-400 font-medium hover:underline"
               >
                 Write another message
               </button>
@@ -137,7 +137,7 @@ const Contact: React.FC = () => {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6" noValidate>
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-1">Name</label>
+                <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Name</label>
                 <div className="relative">
                   <input
                     type="text"
@@ -145,10 +145,10 @@ const Contact: React.FC = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border rounded-lg outline-none transition-all ${
+                    className={`w-full px-4 py-2 border rounded-lg outline-none transition-all bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 ${
                       errors.name 
-                        ? 'border-red-300 focus:border-red-500 focus:ring-2 focus:ring-red-200' 
-                        : 'border-slate-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-500'
+                        ? 'border-red-500/50 focus:border-red-500 focus:ring-2 focus:ring-red-900' 
+                        : 'border-slate-200 dark:border-slate-700 focus:border-teal-500 focus:ring-2 focus:ring-teal-900'
                     }`}
                     placeholder="Your Name"
                   />
@@ -162,7 +162,7 @@ const Contact: React.FC = () => {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-1">Email</label>
+                <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Email</label>
                 <div className="relative">
                   <input
                     type="email"
@@ -170,10 +170,10 @@ const Contact: React.FC = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border rounded-lg outline-none transition-all ${
+                    className={`w-full px-4 py-2 border rounded-lg outline-none transition-all bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 ${
                       errors.email 
-                        ? 'border-red-300 focus:border-red-500 focus:ring-2 focus:ring-red-200' 
-                        : 'border-slate-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-500'
+                        ? 'border-red-500/50 focus:border-red-500 focus:ring-2 focus:ring-red-900' 
+                        : 'border-slate-200 dark:border-slate-700 focus:border-teal-500 focus:ring-2 focus:ring-teal-900'
                     }`}
                     placeholder="you@example.com"
                   />
@@ -187,17 +187,17 @@ const Contact: React.FC = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-1">Message</label>
+                <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Message</label>
                 <textarea
                   id="message"
                   name="message"
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className={`w-full px-4 py-2 border rounded-lg outline-none transition-all resize-none ${
+                  className={`w-full px-4 py-2 border rounded-lg outline-none transition-all resize-none bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 ${
                     errors.message 
-                      ? 'border-red-300 focus:border-red-500 focus:ring-2 focus:ring-red-200' 
-                      : 'border-slate-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-500'
+                      ? 'border-red-500/50 focus:border-red-500 focus:ring-2 focus:ring-red-900' 
+                      : 'border-slate-200 dark:border-slate-700 focus:border-teal-500 focus:ring-2 focus:ring-teal-900'
                   }`}
                   placeholder="How can I help you?"
                 />
@@ -209,8 +209,8 @@ const Contact: React.FC = () => {
                 disabled={isSubmitting}
                 className={`w-full flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white ${
                   isSubmitting 
-                    ? 'bg-slate-400 cursor-not-allowed' 
-                    : 'bg-teal-600 hover:bg-teal-700 shadow-md hover:shadow-lg'
+                    ? 'bg-slate-400 dark:bg-slate-700 cursor-not-allowed' 
+                    : 'bg-teal-600 hover:bg-teal-500 shadow-md shadow-teal-500/20 dark:shadow-teal-900/20 hover:shadow-lg'
                 } transition-all duration-200`}
               >
                 {isSubmitting ? 'Preparing Email...' : 'Send Message'}

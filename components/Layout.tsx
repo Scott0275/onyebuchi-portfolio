@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Github, Linkedin, Twitter } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Twitter, Sun, Moon } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link, useLocation } from './PageTransition';
+import { useTheme } from './ThemeContext';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -10,6 +11,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -27,39 +29,55 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50">
+    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
       {/* Navigation */}
-      <nav className="fixed w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-200">
+      <nav className="fixed w-full bg-white/80 dark:bg-slate-950/80 backdrop-blur-md z-50 border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <div className="flex-shrink-0 flex items-center">
-              <Link to="/" className="text-xl font-bold text-slate-900 tracking-tight">
-                TechWith<span className="text-teal-600">Buchi</span>
+              <Link to="/" className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
+                TechWith<span className="text-teal-600 dark:text-teal-500">Buchi</span>
               </Link>
             </div>
             
             {/* Desktop Menu */}
-            <div className="hidden md:flex space-x-8">
+            <div className="hidden md:flex items-center space-x-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.path}
                   className={`text-sm font-medium transition-colors duration-200 ${
                     location.pathname === link.path
-                      ? 'text-teal-600'
-                      : 'text-slate-600 hover:text-teal-600'
+                      ? 'text-teal-600 dark:text-teal-400'
+                      : 'text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400'
                   }`}
                 >
                   {link.name}
                 </Link>
               ))}
+              
+              {/* Theme Toggle Button Desktop */}
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 focus:outline-none transition-colors"
+                aria-label="Toggle theme"
+              >
+                {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+              </button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center">
+            {/* Mobile Menu Button & Toggle */}
+            <div className="md:hidden flex items-center gap-4">
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 focus:outline-none"
+                aria-label="Toggle theme"
+              >
+                {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+              </button>
               <button
                 onClick={toggleMenu}
-                className="text-slate-600 hover:text-teal-600 focus:outline-none"
+                className="text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 focus:outline-none"
                 aria-label="Toggle menu"
               >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -74,17 +92,17 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden bg-white border-b border-slate-200 shadow-lg absolute w-full"
+            className="md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-lg absolute w-full transition-colors duration-300"
           >
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`block px-3 py-4 rounded-md text-base font-medium ${
+                  className={`block px-3 py-4 rounded-md text-base font-medium transition-colors ${
                     location.pathname === link.path
-                      ? 'text-teal-600 bg-slate-50'
-                      : 'text-slate-600 hover:text-teal-600 hover:bg-slate-50'
+                      ? 'text-teal-600 dark:text-teal-400 bg-slate-50 dark:bg-slate-800/50'
+                      : 'text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-slate-50 dark:hover:bg-slate-800/50'
                   }`}
                 >
                   {link.name}
@@ -101,19 +119,19 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-slate-200 py-8">
+      <footer className="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-8 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-slate-500 text-sm mb-4 md:mb-0">
             &copy; {new Date().getFullYear()} TechWithBuchi. All rights reserved.
           </div>
           <div className="flex space-x-6">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-teal-600 transition-colors">
+            <a href="https://github.com/scott0275" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
               <Github size={20} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-teal-600 transition-colors">
+            <a href="https://www.linkedin.com/in/oscar-onokwuru" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
               <Linkedin size={20} />
             </a>
-            <a href="https://twitter.com/TechWithBuchi" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-teal-600 transition-colors">
+            <a href="https://twitter.com/OOnokwuru" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
               <Twitter size={20} />
             </a>
           </div>

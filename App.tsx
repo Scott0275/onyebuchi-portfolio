@@ -1,6 +1,7 @@
 import React from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { HashRouter, Routes, Route, useLocation } from './components/PageTransition';
+import { ThemeProvider } from './components/ThemeContext';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Bio from './pages/Bio';
@@ -26,11 +27,13 @@ const AnimatedRoutes = () => {
 
 const App: React.FC = () => {
   return (
-    <HashRouter>
-      <Layout>
-        <AnimatedRoutes />
-      </Layout>
-    </HashRouter>
+    <ThemeProvider>
+      <HashRouter>
+        <Layout>
+          <AnimatedRoutes />
+        </Layout>
+      </HashRouter>
+    </ThemeProvider>
   );
 };
 

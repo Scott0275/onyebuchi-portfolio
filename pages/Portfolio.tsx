@@ -27,22 +27,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className={`bg-white rounded-xl overflow-hidden border transition-all duration-300 hover:shadow-lg flex flex-col h-full ${isFlagship ? 'border-teal-500 shadow-md md:col-span-2' : 'border-slate-200'}`}>
-      <div className={`px-6 py-4 border-b ${isFlagship ? 'bg-teal-50 border-teal-100' : 'bg-slate-50 border-slate-100'} flex justify-between items-center`}>
+    <div className={`bg-white dark:bg-slate-900 rounded-xl overflow-hidden border transition-all duration-300 hover:shadow-lg flex flex-col h-full ${isFlagship ? 'border-teal-200 dark:border-teal-700/50 shadow-md md:col-span-2' : 'border-slate-200 dark:border-slate-800'}`}>
+      <div className={`px-6 py-4 border-b ${isFlagship ? 'bg-teal-50 dark:bg-teal-900/20 border-teal-100 dark:border-teal-900/50' : 'bg-slate-50 dark:bg-slate-800/50 border-slate-100 dark:border-slate-800'} flex justify-between items-center transition-colors duration-300`}>
         <div className="flex items-center gap-3">
-          <div className={`p-2 rounded-lg ${isFlagship ? 'bg-teal-100 text-teal-700' : 'bg-slate-200 text-slate-700'}`}>
+          <div className={`p-2 rounded-lg ${isFlagship ? 'bg-teal-100 dark:bg-teal-900/40 text-teal-700 dark:text-teal-300' : 'bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300'} transition-colors duration-300`}>
             <Icon size={isFlagship ? 24 : 20} />
           </div>
           <div>
-            <h3 className="font-bold text-slate-900 text-lg">{title}</h3>
-            {subtitle && <p className="text-xs text-slate-500 font-medium uppercase tracking-wide">{subtitle}</p>}
+            <h3 className="font-bold text-slate-900 dark:text-white text-lg transition-colors duration-300">{title}</h3>
+            {subtitle && <p className="text-xs text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wide transition-colors duration-300">{subtitle}</p>}
           </div>
         </div>
-        {isFlagship && <span className="bg-teal-600 text-white text-xs px-3 py-1 rounded-full font-medium">Flagship</span>}
+        {isFlagship && <span className="bg-teal-600 dark:bg-teal-700 text-white text-xs px-3 py-1 rounded-full font-medium transition-colors duration-300">Flagship</span>}
       </div>
       
       <div className="p-6 flex-grow flex flex-col">
-        <p className="text-slate-600 mb-4 leading-relaxed">
+        <p className="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed transition-colors duration-300">
           {description}
         </p>
         
@@ -55,8 +55,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               transition={{ duration: 0.3 }}
               className="overflow-hidden"
             >
-              <div className="pt-2 pb-6 text-sm text-slate-600 bg-slate-50/50 -mx-6 px-6 border-y border-slate-100 mb-4">
-                <div className="font-semibold text-slate-800 mb-2 mt-4 flex items-center gap-2">
+              <div className="pt-2 pb-6 text-sm text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-800/30 -mx-6 px-6 border-y border-slate-100 dark:border-slate-700 mb-4 transition-colors duration-300">
+                <div className="font-semibold text-slate-800 dark:text-white mb-2 mt-4 flex items-center gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-teal-500"></div>
                   Technical Details
                 </div>
@@ -69,7 +69,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <div className="mt-auto space-y-4">
           <div className="flex flex-wrap gap-2">
             {tags.map((tag) => (
-              <span key={tag} className="text-xs font-medium px-2.5 py-1 rounded bg-slate-100 text-slate-600 border border-slate-200">
+              <span key={tag} className="text-xs font-medium px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 transition-colors duration-300">
                 {tag}
               </span>
             ))}
@@ -81,7 +81,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 href={projectUrl} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-sm font-medium text-teal-600 hover:text-teal-800 transition-colors"
+                className="inline-flex items-center text-sm font-medium text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors"
               >
                 View Presentation <ExternalLink size={14} className="ml-1" />
               </a>
@@ -92,7 +92,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             {detailedDescription && (
               <button
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="inline-flex items-center text-sm font-medium text-slate-500 hover:text-teal-600 transition-colors focus:outline-none"
+                className="inline-flex items-center text-sm font-medium text-slate-500 hover:text-teal-600 dark:hover:text-teal-400 transition-colors focus:outline-none"
               >
                 {isExpanded ? 'Less Info' : 'Learn More'}
                 {isExpanded ? <ChevronUp size={16} className="ml-1" /> : <ChevronDown size={16} className="ml-1" />}
@@ -111,20 +111,20 @@ const Portfolio: React.FC = () => {
   return (
     <PageTransition className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="text-center mb-10">
-        <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Portfolio</h1>
-        <p className="text-slate-500 max-w-2xl mx-auto mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4 transition-colors duration-300">Portfolio</h1>
+        <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8 transition-colors duration-300">
           A showcase of impactful solutions leveraging cloud architecture, data engineering, and product thinking.
         </p>
 
         {/* Tab Navigation */}
         <div className="flex justify-center">
-          <div className="bg-slate-100 p-1.5 rounded-xl inline-flex shadow-inner">
+          <div className="bg-slate-100 dark:bg-slate-900 p-1.5 rounded-xl inline-flex shadow-inner border border-slate-200 dark:border-slate-800 transition-colors duration-300">
             <button
               onClick={() => setActiveTab('highlights')}
               className={`flex items-center px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                 activeTab === 'highlights'
-                  ? 'bg-white text-teal-600 shadow-sm ring-1 ring-black/5'
-                  : 'text-slate-500 hover:text-slate-700 hover:bg-slate-200/50'
+                  ? 'bg-white dark:bg-slate-800 text-teal-600 dark:text-teal-400 shadow-sm ring-1 ring-black/5 border border-slate-200 dark:border-slate-700'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800/50'
               }`}
             >
               <LayoutGrid size={18} className="mr-2" />
@@ -134,8 +134,8 @@ const Portfolio: React.FC = () => {
               onClick={() => setActiveTab('external')}
               className={`flex items-center px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                 activeTab === 'external'
-                  ? 'bg-white text-teal-600 shadow-sm ring-1 ring-black/5'
-                  : 'text-slate-500 hover:text-slate-700 hover:bg-slate-200/50'
+                  ? 'bg-white dark:bg-slate-800 text-teal-600 dark:text-teal-400 shadow-sm ring-1 ring-black/5 border border-slate-200 dark:border-slate-700'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800/50'
               }`}
             >
               <Globe size={18} className="mr-2" />
@@ -218,11 +218,11 @@ const Portfolio: React.FC = () => {
             {/* Section Divider */}
             <div className="md:col-span-2 lg:col-span-3 mt-8 mb-4">
               <div className="flex items-center gap-4">
-                <div className="h-px bg-slate-200 flex-grow"></div>
-                <h2 className="text-slate-400 font-bold uppercase tracking-wider text-sm flex items-center gap-2">
+                <div className="h-px bg-slate-200 dark:bg-slate-800 flex-grow transition-colors duration-300"></div>
+                <h2 className="text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider text-sm flex items-center gap-2 transition-colors duration-300">
                   <Cloud size={16} /> Data Engineering Labs
                 </h2>
-                <div className="h-px bg-slate-200 flex-grow"></div>
+                <div className="h-px bg-slate-200 dark:bg-slate-800 flex-grow transition-colors duration-300"></div>
               </div>
             </div>
 
@@ -277,8 +277,8 @@ const Portfolio: React.FC = () => {
             transition={{ duration: 0.3 }}
             className="w-full"
           >
-             <div className="bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden">
-                <div className="bg-slate-50 border-b border-slate-200 px-4 py-3 flex justify-between items-center">
+             <div className="bg-white dark:bg-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-800 overflow-hidden transition-all duration-300">
+                <div className="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800 px-4 py-3 flex justify-between items-center transition-colors duration-300">
                    <div className="flex items-center gap-2">
                       <div className="w-3 h-3 rounded-full bg-red-400"></div>
                       <div className="w-3 h-3 rounded-full bg-amber-400"></div>
@@ -288,7 +288,7 @@ const Portfolio: React.FC = () => {
                     href="https://datascienceportfol.io/oscaronyebuchi" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-xs text-slate-500 hover:text-teal-600 flex items-center gap-1 font-medium transition-colors"
+                    className="text-xs text-slate-500 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 flex items-center gap-1 font-medium transition-colors"
                    >
                      Open in new tab <ExternalLink size={12} />
                    </a>
