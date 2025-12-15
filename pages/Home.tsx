@@ -62,6 +62,8 @@ const Home: React.FC = () => {
               <img 
                 src="/images/profile.jpg"
                 alt="Onokwuru Oscar Onyebuchi" 
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = 'https://ui-avatars.com/api/?name=Onye+Buchi&background=0D9488&color=fff&size=512';

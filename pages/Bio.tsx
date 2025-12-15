@@ -95,6 +95,8 @@ const Bio: React.FC = () => {
                 <img 
                   src="/images/profile.jpg"
                   alt="Buchi" 
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover rounded-full border-4 border-white dark:border-slate-800 relative z-10 shadow-sm transition-colors duration-300"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = 'https://ui-avatars.com/api/?name=Onye+Buchi&background=0D9488&color=fff&size=512';
