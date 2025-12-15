@@ -107,7 +107,7 @@ const Bio: React.FC = () => {
                   decoding="async"
                   className="w-full h-full object-cover rounded-full border-4 border-white dark:border-slate-800 relative z-10 shadow-sm transition-colors duration-300"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = 'https://ui-avatars.com/api/?name=Onye+Buchi&background=0D9488&color=fff&size=512';
+                    (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=800&q=80';
                   }}
                 />
               </div>
