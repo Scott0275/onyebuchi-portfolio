@@ -27,7 +27,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className={`bg-white dark:bg-slate-900 rounded-xl overflow-hidden border transition-all duration-300 hover:shadow-lg flex flex-col h-full ${isFlagship ? 'border-teal-200 dark:border-teal-700/50 shadow-md md:col-span-2' : 'border-slate-200 dark:border-slate-800'}`}>
+    <div className={`bg-white dark:bg-slate-900 rounded-xl overflow-hidden border transition-all duration-300 hover:shadow-xl hover:scale-[1.02] flex flex-col h-full ${isFlagship ? 'border-teal-200 dark:border-teal-700/50 shadow-md md:col-span-2' : 'border-slate-200 dark:border-slate-800'}`}>
       <div className={`px-6 py-4 border-b ${isFlagship ? 'bg-teal-50 dark:bg-teal-900/20 border-teal-100 dark:border-teal-900/50' : 'bg-slate-50 dark:bg-slate-800/50 border-slate-100 dark:border-slate-800'} flex justify-between items-center transition-colors duration-300`}>
         <div className="flex items-center gap-3">
           <div className={`p-2 rounded-lg ${isFlagship ? 'bg-teal-100 dark:bg-teal-900/40 text-teal-700 dark:text-teal-300' : 'bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300'} transition-colors duration-300`}>
