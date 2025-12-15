@@ -1,6 +1,6 @@
 import React from 'react';
-import PageTransition from '../components/PageTransition';
-import { Video, Mic } from 'lucide-react';
+import PageTransition, { Link } from '../components/PageTransition';
+import { Video, Mic, Briefcase, ArrowRight } from 'lucide-react';
 
 const ElevatorPitch: React.FC = () => {
   return (
@@ -29,6 +29,16 @@ const ElevatorPitch: React.FC = () => {
               </p>
             </div>
           </div>
+        </div>
+
+        {/* CTA */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+           <Link
+              to="/portfolio"
+              className="inline-flex items-center justify-center px-8 py-3 w-full sm:w-auto text-base font-medium rounded-lg text-white bg-teal-600 hover:bg-teal-700 dark:bg-teal-600 dark:hover:bg-teal-500 transition-all duration-200 shadow-lg shadow-teal-500/20 dark:shadow-teal-900/20 transform hover:-translate-y-0.5"
+            >
+              See My Work <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
         </div>
 
       </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import PageTransition from '../components/PageTransition';
-import { ExternalLink, Database, Home, Leaf, Cloud, Workflow, Server, Terminal, FileText, ChevronDown, ChevronUp, LayoutGrid, Globe } from 'lucide-react';
+import PageTransition, { Link } from '../components/PageTransition';
+import { ExternalLink, Database, Home, Leaf, Cloud, Workflow, Server, Terminal, FileText, ChevronDown, ChevronUp, LayoutGrid, Globe, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface ProjectCardProps {
@@ -81,9 +81,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 href={projectUrl} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-sm font-medium text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors"
+                className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 hover:border-teal-500 dark:hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 transition-all duration-200 shadow-sm"
               >
-                View Presentation <ExternalLink size={14} className="ml-1" />
+                View Presentation <ExternalLink size={14} className="ml-2" />
               </a>
             ) : (
               <span></span> /* Spacer */
@@ -113,7 +113,7 @@ const Portfolio: React.FC = () => {
       <div className="text-center mb-10">
         <h1 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4 transition-colors duration-300">Portfolio</h1>
         <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8 transition-colors duration-300">
-          A showcase of impactful solutions leveraging cloud architecture, data engineering, and product thinking.
+          Building scalable cloud-native systems for real-world impact. A showcase of solutions leveraging cloud architecture, data engineering, and product thinking.
         </p>
 
         {/* Tab Navigation */}
@@ -304,6 +304,17 @@ const Portfolio: React.FC = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      
+      {/* Bottom CTA */}
+      <section className="text-center py-12 mt-12 border-t border-slate-200 dark:border-slate-800">
+        <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Have a project in mind?</h3>
+        <Link 
+          to="/contact" 
+          className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-lg text-white bg-teal-600 hover:bg-teal-700 dark:bg-teal-600 dark:hover:bg-teal-500 transition-all duration-200 shadow-lg shadow-teal-500/20 dark:shadow-teal-900/20 transform hover:-translate-y-0.5"
+        >
+          Let's Collaborate <ArrowRight className="ml-2 w-5 h-5" />
+        </Link>
+      </section>
     </PageTransition>
   );
 };

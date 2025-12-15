@@ -1,6 +1,6 @@
 import React from 'react';
-import PageTransition from '../components/PageTransition';
-import { Award, Target, Rocket, Cloud, Database, Terminal, Cpu, Users } from 'lucide-react';
+import PageTransition, { Link } from '../components/PageTransition';
+import { Award, Target, Rocket, Cloud, Database, Terminal, Cpu, Users, ArrowRight } from 'lucide-react';
 
 const Bio: React.FC = () => {
   const skillCategories = [
@@ -48,9 +48,17 @@ const Bio: React.FC = () => {
                 <Award className="text-teal-600 dark:text-teal-400 w-6 h-6 mr-3" />
                 <h2 className="text-2xl font-bold text-slate-900 dark:text-white transition-colors duration-300">About Me</h2>
               </div>
-              <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-lg transition-colors duration-300">
-                Onokwuru Oscar OnyeBuchi is a Cloud & Data Engineering professional passionate about using technology to solve meaningful problems across Africa. He holds an <span className="font-semibold text-slate-800 dark:text-white">AWS Solutions Architect Associate</span> certification and is undergoing a Data Engineering foundation program where he learned teamwork, cloud fundamentals, and product thinking.
-              </p>
+              <div className="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed text-lg transition-colors duration-300">
+                <p>
+                  Oscar Onokwuru is a cloud data engineer and startup founder building technology-driven solutions for critical systems in emerging markets. He focuses on designing scalable cloud and data infrastructures that power real-world products in healthcare, housing, and access to essential services.
+                </p>
+                <p>
+                  What sets Oscar apart is his founder mindset—combining technical execution with product vision. He doesn’t just build systems; he builds solutions with clear users, measurable impact, and long-term scalability in mind.
+                </p>
+                <p>
+                  Driven by a passion for using data and cloud technology to improve efficiency, trust, and accessibility, Oscar is actively developing platforms like SmartCare and HomeStarter Connect. His work at ALX and beyond, combined with his <span className="font-semibold text-slate-800 dark:text-white">AWS Solutions Architect Associate</span> certification, is equipping him with the technical depth and leadership skills needed to turn complex problems into sustainable, investable products.
+                </p>
+              </div>
             </div>
           </section>
 
@@ -125,7 +133,7 @@ const Bio: React.FC = () => {
       </div>
 
       {/* Skills Section */}
-      <section>
+      <section className="mb-16">
         <div className="flex items-center mb-8">
           <Cpu className="text-teal-600 dark:text-teal-400 w-8 h-8 mr-3" />
           <h2 className="text-3xl font-bold text-slate-900 dark:text-white transition-colors duration-300">Technical Arsenal</h2>
@@ -150,6 +158,17 @@ const Bio: React.FC = () => {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Bottom CTA */}
+      <section className="text-center py-12 border-t border-slate-200 dark:border-slate-800">
+        <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Ready to create impact?</h3>
+        <Link 
+          to="/contact" 
+          className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-lg text-white bg-teal-600 hover:bg-teal-700 dark:bg-teal-600 dark:hover:bg-teal-500 transition-all duration-200 shadow-lg shadow-teal-500/20 dark:shadow-teal-900/20 transform hover:-translate-y-0.5"
+        >
+          Let's Connect <ArrowRight className="ml-2 w-5 h-5" />
+        </Link>
       </section>
 
     </PageTransition>

@@ -21,12 +21,12 @@ const Home: React.FC = () => {
               </span>
             </h1>
             <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 font-medium max-w-lg mx-auto md:mx-0 transition-colors duration-300">
-              Cloud & Data Engineer • AWS Certified Solutions Architect • Problem-Solver & Smart-Care Innovator
+              Cloud & Data Engineer • AWS Certified Solutions Architect
             </p>
           </div>
 
           <p className="text-slate-600 dark:text-slate-400 leading-relaxed max-w-md mx-auto md:mx-0 transition-colors duration-300">
-            I build cloud-native data solutions and practical systems that solve real-world problems across Africa.
+            Building scalable cloud-native systems for real-world impact. I design data solutions that solve critical problems in emerging markets.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-4">
@@ -39,10 +39,10 @@ const Home: React.FC = () => {
             </Link>
             <Link
               to="/portfolio"
-              className="flex items-center justify-center px-8 py-3 w-full sm:w-auto text-base font-medium rounded-lg text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 hover:border-teal-500 dark:hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 transition-all duration-200 shadow-sm"
+              className="flex items-center justify-center px-8 py-3 w-full sm:w-auto text-base font-medium rounded-lg text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 hover:border-teal-500 dark:hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 transition-all duration-200 shadow-sm transform hover:-translate-y-0.5"
             >
               <Briefcase className="w-5 h-5 mr-2" />
-              Portfolio
+              View Projects
             </Link>
           </div>
         </div>
