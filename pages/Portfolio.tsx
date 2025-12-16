@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PageTransition, { Link } from '../components/PageTransition';
-import { ExternalLink, Database, Home, Leaf, Cloud, Workflow, Server, Terminal, FileText, ChevronDown, ChevronUp, LayoutGrid, Globe, ArrowRight } from 'lucide-react';
+import { ExternalLink, Database, Home, Leaf, Cloud, Workflow, Server, Terminal, FileText, ChevronDown, ChevronUp, LayoutGrid, Globe, ArrowRight, Github } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface ProjectCardProps {
@@ -12,6 +12,7 @@ interface ProjectCardProps {
   tags: string[];
   isFlagship?: boolean;
   projectUrl?: string;
+  githubUrl?: string;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ 
@@ -22,7 +23,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   subtitle, 
   tags, 
   isFlagship = false,
-  projectUrl
+  projectUrl,
+  githubUrl
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -75,24 +77,35 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             ))}
           </div>
 
-          <div className="flex items-center justify-between pt-2">
-            {projectUrl ? (
-              <a 
-                href={projectUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 hover:border-teal-500 dark:hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 transition-all duration-200 shadow-sm"
-              >
-                View Presentation <ExternalLink size={14} className="ml-2" />
-              </a>
-            ) : (
-              <span></span> /* Spacer */
-            )}
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
+            <div className="flex flex-wrap gap-2">
+              {projectUrl && (
+                <a 
+                  href={projectUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 hover:border-teal-500 dark:hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 transition-all duration-200 shadow-sm"
+                >
+                  Presentation <ExternalLink size={14} className="ml-2" />
+                </a>
+              )}
+              
+              {githubUrl && (
+                <a 
+                  href={githubUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 hover:border-teal-500 dark:hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 transition-all duration-200 shadow-sm"
+                >
+                  GitHub <Github size={14} className="ml-2" />
+                </a>
+              )}
+            </div>
 
             {detailedDescription && (
               <button
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="inline-flex items-center text-sm font-medium text-slate-500 hover:text-teal-600 dark:hover:text-teal-400 transition-colors focus:outline-none"
+                className="inline-flex items-center text-sm font-medium text-slate-500 hover:text-teal-600 dark:hover:text-teal-400 transition-colors focus:outline-none ml-auto"
               >
                 {isExpanded ? 'Less Info' : 'Learn More'}
                 {isExpanded ? <ChevronUp size={16} className="ml-1" /> : <ChevronDown size={16} className="ml-1" />}
@@ -168,6 +181,7 @@ const Portfolio: React.FC = () => {
                 By decoupling services, we achieved a theoretical reduction in latency for emergency triage routing. The system also integrates with Amazon SNS for immediate alerts to medical personnel, ensuring that critical data reaches the right hands instantly.`}
                 tags={['Cloud Architecture', 'Event-Driven', 'Data Workflows', 'AWS']}
                 projectUrl="https://docs.google.com/presentation/d/1dRuyCU1jTwSOvqa3sWPwt1zbj0ylTCmPapIQneSwzhY/edit?usp=sharing"
+                githubUrl="https://github.com/Scott0275/SmartCare-Connect"
               />
             </div>
 
@@ -183,6 +197,7 @@ const Portfolio: React.FC = () => {
                 The platform includes a mortgage calculator engine and tracks user financial behavior to build a 'readiness score', enabling financial institutions to assess loan eligibility for unbanked users based on their platform activity.`}
                 tags={['Marketplace', 'FinTech', 'User Verification']}
                 projectUrl="https://docs.google.com/presentation/d/1jqBhk_Q9bi65NQG5YqTTsPnD_ajaP7au_Pj9FUj4m6c/edit?usp=sharing"
+                githubUrl="https://github.com/Scott0275/home-starter"
               />
             </div>
 
@@ -197,10 +212,11 @@ const Portfolio: React.FC = () => {
                 
                 The move to digital logs significantly reduced data entry errors and improved inventory forecasting accuracy.`}
                 tags={['Digitization', 'Process Improvement', 'AgriTech']}
+                githubUrl="https://github.com/Scott0275/agrivest"
               />
             </div>
 
-            {/* Project 4: Portfolio Presentation */}
+            {/* Project 4: Portfolio Architecture */}
             <div className="lg:col-span-1">
               <ProjectCard 
                 title="Portfolio Architecture" 
@@ -212,6 +228,7 @@ const Portfolio: React.FC = () => {
                 It uses React Router for client-side navigation and Framer Motion for smooth page transitions. The architecture focuses on component reusability and clean code principles, ensuring easy maintenance and scalability.`}
                 tags={['Documentation', 'System Design', 'React/AWS']}
                 projectUrl="https://docs.google.com/presentation/d/1vPWKqObZA9HjpC2DUBARyNL070n_nvFGEx_mqKLmkW8/edit?usp=sharing"
+                githubUrl="https://github.com/Scott0275/onyebuchi-portfolio"
               />
             </div>
 
