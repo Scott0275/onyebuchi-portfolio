@@ -1,6 +1,7 @@
 import React from 'react';
-import { User, Briefcase, PlayCircle, Database, Cloud } from 'lucide-react';
+import { User, Briefcase, Database, Cloud } from 'lucide-react';
 import PageTransition, { Link } from '../components/PageTransition';
+import ProfileImage from '../components/ProfileImage';
 
 const Home: React.FC = () => {
   return (
@@ -59,17 +60,7 @@ const Home: React.FC = () => {
             {/* Main Image Container */}
             <div className="absolute inset-4 rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl shadow-slate-200/50 dark:shadow-black/50 transition-colors duration-300">
               <div className="absolute inset-0 bg-teal-900/0 dark:bg-teal-900/10 mix-blend-overlay z-10"></div> {/* Subtle tint in dark mode */}
-              <img 
-                src="/images/profile.jpg"
-                alt="Onokwuru Oscar Onyebuchi" 
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
-                onError={(e) => {
-                  // Fallback to a professional placeholder instead of text avatar
-                  (e.target as HTMLImageElement).src = 'https://lh3.googleusercontent.com/rd-gg/AIJ2gl8I8T0UIvs0nMrjyQScC-vJqlUtvwcMBLpmehqC3B9M5-JPOPhdxfd_UP0KTm70dChTo8hI06lFFgxuByiM9J_WI-Bu9tkC63Fj5BnfstQMiSblSRXZU1iTQQ5-9Zjuxsmvr1K-Pp6Zzal237N5iOV4zD1u5hoFNhp-GZtulrnaPO9jZ89mB-xAiLHq_OR6xBQq6x2HBZeG7vNqy08Fe4S8y63aAg6DGR6l9qoHXyV95KJEdbPaEWJ6nLMuwVbg7Z9rAN1dDoTaRnjr7o7AqZYb4fPCQgnWpVseCNtxrI0XQ48N1HGjcpsqnB24w_tFgva73BoUQ45LFru1FP4mCe-Ecu3DAeX-ZOJLk2D0AdimhqidkgpZDZFltXdGETRFQ9L7YIbkxsAyuCH6SwZu0ztcM3OemEBCkeW8gg4x8SMep6dy930dkNoK0XilkfCHUYGbDU4p6Q1pnOJSWUjLjnL65Qfq7wvDvUmdXeMNJzwXLYSzdxwv98FnpjfrSOtAelfSveDbf7TdZ_jcTQmRqorOJCxRrf_gOk5R9Anq3J5J3wcxZiEk6fmnf2HP5L9QfpEtFSLDOpRT2x0GZRYaNVWqL6FbFqQkD68-hr8pt07ygbyfO_TeDxZV0NHTgwpItTGPMPQ-spn9rFHk_tB5a0gpUevLCCApurFnlsB5LJytm5QX_eT2vhvIvovUMG2h81DnPMa5PFOrdQ2XT5L-v4_MlhncQqvdF0GGfKcxDbR3KEg2t0hs78IoDNF4LTtSgdlbOiFrmO2xfP_ZOTLbG8KoZ35MZ5cOZ8Leb34tS9cHUQOn7UlxrOW11Ee1UEmxzNh5NQBXLkSSrUbp_n3LP30x6aZADPnsGfyu_wFTxigvQeOY-22ph0offnVlPFVrud8Gz1tyQ4FYjP00XKwtox1KMtOzJ_tyMrBKx3H8o0EHgCzLQCKBtOy4_Ndk51uPtLXdp7xbuaR_M1vkJNi6VugXKZQgaBjvTKBpElJlmcNAAndLHtu_JNBEpC--YFPqEQZotJuINRzvvOIe60Wrhtwe7Ehe7Qngg2s_8a5xi74ABYVfQjsfVABFfFpZ2zJ7mKC5lXLzxtLwZXKkvctSfq69Fv9W_66J1eXcoGhVHFRTWeLjZILCaIRA-dEtDAJO3S8yPMIAsuC87B4LQV2iH-3unR3Sf2y_HZQzM06zRL1y--cws_bZWfXCLbsFViI_vcR01WyYFnOeh_owK096WUXkbw2KCU6HP-L8_a8YG_v8XVg9om5_saJcdKG_E9djw-QzFhF872heqEyucnEzhMIxSfi5SnR2kwGX7ctJ02IPDzAYQJnA_2Q0y0zMFqo1WfMFMRfhGFJJCMk0cl1fTPYtxIt1fJXTlLvqtEfqJWJrp54Sfzi8fGEkjQT8zAPD2pxmUS-IVrYUyN5qJl9GgO85bNyLyZv5xSSerOuH5SPDgrMdGoNn6dcN5RtdRk3t_W9BReiD8gqTNFt2-bWgupuFT2QTgqm-1JhBJgZk=s1024-rj';
-                }}
-              />
+              <ProfileImage alt="Onokwuru Oscar Onyebuchi" className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700" />
             </div>
 
             {/* Floating Badges */}
@@ -77,10 +68,10 @@ const Home: React.FC = () => {
               <Database className="w-4 h-4 sm:w-5 sm:h-5 text-teal-600 dark:text-teal-400" />
               <span className="text-[10px] sm:text-xs font-bold text-slate-700 dark:text-slate-300">Data Engineer</span>
             </div>
-             <div className="absolute top-10 -left-2 sm:-left-6 bg-white dark:bg-slate-900 p-2 sm:p-3 rounded-xl shadow-lg border border-slate-200 dark:border-slate-800 flex items-center gap-2 transition-colors duration-300" >
+             <Link to="/bio" className="absolute top-10 -left-2 sm:-left-6 bg-white dark:bg-slate-900 p-2 sm:p-3 rounded-xl shadow-lg border border-slate-200 dark:border-slate-800 flex items-center gap-2 transition-all duration-300 hover:scale-110 hover:shadow-teal-500/20 cursor-pointer" >
               <Cloud className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500 dark:text-blue-400" />
               <span className="text-[10px] sm:text-xs font-bold text-slate-700 dark:text-slate-300">AWS Certified</span>
-            </div>
+            </Link>
           </div>
         </div>
 

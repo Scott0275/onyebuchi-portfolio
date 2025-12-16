@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PageTransition, { Link } from '../components/PageTransition';
-import { Award, Target, Rocket, Cloud, Database, Terminal, Cpu, Users, ArrowRight } from 'lucide-react';
+import ProfileImage from '../components/ProfileImage';
+import { Award, Target, Rocket, Cloud, Database, Terminal, Cpu, Users, ArrowRight, ExternalLink, ShieldCheck } from 'lucide-react';
 
 const Bio: React.FC = () => {
+  // Check for hash to scroll to certifications if needed
+  useEffect(() => {
+    if (window.location.hash === '#certifications') {
+      const element = document.getElementById('certifications');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, []);
+
   const skillCategories = [
     {
       title: "Cloud Architecture",
@@ -23,6 +34,49 @@ const Bio: React.FC = () => {
       title: "Core Competencies",
       icon: Users,
       skills: ["Problem Solving", "Product Thinking", "Agile Collaboration", "Technical Documentation", "Process Digitization", "System Design"]
+    }
+  ];
+
+  const certifications = [
+    {
+      name: "AWS Certified Solutions Architect – Associate",
+      issuer: "Amazon Web Services",
+      date: "2024",
+      url: "https://drive.google.com/file/d/1xzEBMuzeczLGokgNssonqyUMD9yx3D-7/view?usp=sharing",
+      icon: Cloud,
+      color: "text-orange-500"
+    },
+    {
+      name: "Cloud Computing",
+      issuer: "ALX Africa",
+      date: "2024",
+      url: "https://savanna.alxafrica.com/certificates/f97x2SHTm5?utm_campaign=ALX%20-%202024%20-%20TR%20-%20AWS%20C4&utm_medium=email&_hsenc=p2ANqtz-_lFjenphQD1Lv6pJj0PIIVQcfJ0xABzZZC9Ja3uUYqcwDXlnJ-c1_xL4zIprzI5RSdQM10-JKWlz26g7uc5kzIDH29WkjlGE3wNgHUU4B9GwJ3rlE&_hsmi=105124670&utm_content=105124670&utm_source=hs_email",
+      icon: Award,
+      color: "text-teal-500"
+    },
+    {
+      name: "Founders Academy",
+      issuer: "ALX Africa",
+      date: "2025",
+      url: "https://savanna.alxafrica.com/certificates/P6G3fJMc82?utm_campaign=98449599-ALX%20-%202025%20-%20Ventures%20FLA%202W%20C0&utm_medium=email&_hsenc=p2ANqtz-_Kv6UTDfk-EGjCif1KsyTRgLEDl63diCWRR9OuNEyJhVGcPDaHygFnaeC5jE13e-oOVCkYm0A9T7Xspil1tB6R-zcXctnzQml2xURay2p76bXjJb0&_hsmi=112355529&utm_content=112355529&utm_source=hs_email",
+      icon: Rocket,
+      color: "text-purple-500"
+    },
+    {
+      name: "DevOps Pre-Requisite",
+      issuer: "KodeKloud",
+      date: "2024",
+      url: "https://drive.google.com/file/d/1KsjV0TT5cm3iN9xZQqS1OrwVLzk4OI4J/view?usp=sharing",
+      icon: Terminal,
+      color: "text-blue-500"
+    },
+    {
+      name: "12 Factor App",
+      issuer: "KodeKloud",
+      date: "2024",
+      url: "https://drive.google.com/file/d/1D9r77ILUmKNWgEYGBVKbz1e52DNOxo7W/view?usp=sharing",
+      icon: Database,
+      color: "text-green-500"
     }
   ];
 
@@ -100,16 +154,9 @@ const Bio: React.FC = () => {
            <div className="bg-white dark:bg-slate-900 p-4 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-800 text-center transition-all duration-300">
               <div className="w-32 h-32 mx-auto mb-4 relative">
                 <div className="absolute inset-0 bg-teal-500/20 rounded-full blur-md opacity-50"></div>
-                <img 
-                  src="/images/profile.jpg"
-                  alt="Buchi" 
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover rounded-full border-4 border-white dark:border-slate-800 relative z-10 shadow-sm transition-colors duration-300"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=800&q=80';
-                  }}
-                />
+                <div className="w-full h-full rounded-full border-4 border-white dark:border-slate-800 relative z-10 shadow-sm overflow-hidden">
+                   <ProfileImage alt="Buchi" className="w-full h-full object-cover" />
+                </div>
               </div>
               <h3 className="font-bold text-slate-900 dark:text-white text-lg transition-colors duration-300">TechWithBuchi</h3>
               <div className="flex items-center justify-center gap-2 text-teal-600 dark:text-teal-400 mt-1 transition-colors duration-300">
@@ -154,6 +201,46 @@ const Bio: React.FC = () => {
                     {skill}
                   </span>
                 ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Certifications Section */}
+      <section id="certifications" className="mb-16 scroll-mt-24">
+        <div className="flex items-center mb-8">
+          <ShieldCheck className="text-teal-600 dark:text-teal-400 w-8 h-8 mr-3" />
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-white transition-colors duration-300">Certifications & Credentials</h2>
+        </div>
+        
+        <div className="grid md:grid-cols-2 gap-6">
+          {certifications.map((cert, index) => (
+            <div key={index} className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 hover:shadow-lg hover:border-teal-200 dark:hover:border-teal-800 transition-all duration-300 group">
+              <div className="flex items-start justify-between">
+                <div className="flex items-start gap-4">
+                  <div className={`p-3 rounded-lg bg-slate-50 dark:bg-slate-800 ${cert.color} transition-colors duration-300`}>
+                    <cert.icon size={24} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors duration-300">
+                      {cert.name}
+                    </h3>
+                    <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">{cert.issuer}</p>
+                    <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">Issued: {cert.date}</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-6">
+                <a 
+                  href={cert.url}
+                  target="_blank"
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
+                >
+                  Verify Credential <ExternalLink size={14} className="ml-1.5" />
+                </a>
               </div>
             </div>
           ))}
